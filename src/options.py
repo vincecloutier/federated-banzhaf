@@ -14,7 +14,7 @@ def args_parser():
     parser.add_argument('--setting', type=int, default=0, help= "Set to 0 for IID, 1 for non-iid, 2 for mislabeled, 3 for noisy.")
     parser.add_argument('--badclient_prop', type=float, default=0.4, help= "Proportion of either non-iid or mislabeled or noisy clients.")
     parser.add_argument('--num_categories_per_client', type=int, default=4, help= "Number of categories per client in non-iid setting.")
-    parser.add_argument('--badsample_prop', type=float, default=0.8, help= "Proportion of mislabeled/noisy samples per client in mislabeled/noisy setting.")
+    parser.add_argument('--badsample_prop', type=float, default=0.6, help= "Proportion of mislabeled/noisy samples per client in mislabeled/noisy setting.")
 
     # training arguments
     parser.add_argument('--local_ep', type=int, default=10, help="the number of local epochs: E")
