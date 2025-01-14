@@ -1,7 +1,8 @@
 import re
+
 import pandas as pd
-from scipy.stats import pearsonr
 import numpy as np
+from scipy.stats import pearsonr
 
 
 def process_log(file_path):

@@ -1,6 +1,8 @@
 import re
-import matplotlib.pyplot as plt
+
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 def process_log(file_path):
     # read the log file
@@ -165,12 +167,12 @@ def graph_processed_log(log_file):
     # save the figure
     dataset_name = log_file.split('/')[-1].split('.')[0][:-1]
     number = log_file.split('/')[-1].split('.')[0][-1]
-    plt.savefig(f"experiments/retraining/graphs/retrain_{dataset_name}_{number}.png", dpi=300)
+    plt.savefig(f"retraining/graphs/retrain_{dataset_name}_{number}.png", dpi=150)
 
 
-graph_processed_log('experiments/retraining/cifar1.log')
-graph_processed_log('experiments/retraining/cifar2.log')
-graph_processed_log('experiments/retraining/cifar3.log')
-graph_processed_log('experiments/retraining/fmnist1.log')
-graph_processed_log('experiments/retraining/fmnist2.log')
-graph_processed_log('experiments/retraining/fmnist3.log')
+graph_processed_log('retraining/cifar1.log')
+graph_processed_log('retraining/cifar2.log')
+graph_processed_log('retraining/cifar3.log')
+graph_processed_log('retraining/fmnist1.log')
+graph_processed_log('retraining/fmnist2.log')
+graph_processed_log('retraining/fmnist3.log')

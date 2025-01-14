@@ -1,4 +1,5 @@
 import re
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -32,24 +33,12 @@ def compute_rank_stability(runs):
     df = df.sort_index(axis=1)
     df = df.fillna(np.nan)
     ranked_df = df.rank(axis=1, method='average', ascending=False)
-    ranked_df_T = ranked_df.transpose()
-    correlations = spearmanr(ranked_df_T, nan_policy='omit')[0]
-    print(correlations.mean())
-    return correlations.mean()
-
-
-def compute_rank_stability_med(runs):
-    df = pd.DataFrame(runs)
-    df = df.sort_index(axis=1)
-    df = df.fillna(np.nan)
-    ranked_df = df.rank(axis=1, method='average', ascending=False)
     median_ranks = ranked_df.median(axis=0)
     corrs = []
     for i in range(len(ranked_df)):
         run_ranks = ranked_df.iloc[i, :]
         corr, _ = spearmanr(run_ranks, median_ranks, nan_policy='omit')
         corrs.append(corr)
-    print(np.mean(corrs))
     return np.mean(corrs)
 
 
@@ -60,12 +49,11 @@ def process_and_graph_logs(log_files, plot=False):
 
     # process each log file (each representing a setting)
     for log_file in log_files:
-        print(log_file)
         approx_simple, approx_hessian, shapley, influence, runtimes = process_log(log_file)
-        corr_metrics['FBVS'].append(compute_rank_stability_med(approx_simple))
-        corr_metrics['FBVH'].append(compute_rank_stability_med(approx_hessian))
-        corr_metrics['FSV'].append(compute_rank_stability_med(shapley))
-        corr_metrics['Influence'].append(compute_rank_stability_med(influence))
+        corr_metrics['FBVS'].append(compute_rank_stability(approx_simple))
+        corr_metrics['FBVH'].append(compute_rank_stability(approx_hessian))
+        corr_metrics['FSV'].append(compute_rank_stability(shapley))
+        corr_metrics['Influence'].append(compute_rank_stability(influence))
         for run in runtimes:
             runtime_metrics["FBVS"].append(run["abvs"])
             runtime_metrics["FBVH"].append(run["abvh"])
