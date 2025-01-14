@@ -1,3 +1,4 @@
+import os
 import re
 
 import numpy as np
@@ -93,7 +94,8 @@ def process_and_graph_logs(log_files, plot=False):
         plt.gca().yaxis.set_label_position('right')
         plt.gca().yaxis.tick_right()
 
-        plt.savefig(f"robustness/graphs/robustness_{dataset}.png", dpi=150, bbox_inches='tight')
+    os.makedirs("robustness/graphs", exist_ok=True)
+    plt.savefig(f"robustness/graphs/robustness_{dataset}.png", dpi=150, bbox_inches='tight')
 
 
 process_and_graph_logs(['robustness/cifar0.log', 'robustness/cifar1.log', 'robustness/cifar2.log', 'robustness/cifar3.log'], plot=True)

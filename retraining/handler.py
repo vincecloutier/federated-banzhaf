@@ -1,3 +1,4 @@
+import os
 import re
 
 import numpy as np
@@ -167,6 +168,8 @@ def graph_processed_log(log_file):
     # save the figure
     dataset_name = log_file.split('/')[-1].split('.')[0][:-1]
     number = log_file.split('/')[-1].split('.')[0][-1]
+    
+    os.makedirs("retraining/graphs", exist_ok=True)
     plt.savefig(f"retraining/graphs/retrain_{dataset_name}_{number}.png", dpi=150)
 
 
