@@ -21,6 +21,7 @@ os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
 
 
 def train_global_model(args, model, train_dataset, valid_dataset, test_dataset, user_groups, device, bad_clients=None):
+    """Train the global model."""
     initial_start_time = time.time()
     global_weights = model.state_dict()
     abv_simple, abv_hessian = defaultdict(float), defaultdict(float)
