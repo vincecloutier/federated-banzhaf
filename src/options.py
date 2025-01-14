@@ -22,6 +22,7 @@ def args_parser():
     parser.add_argument('--lr', type=float, default=1e-2, help='learning rate')
     parser.add_argument('--weight_decay', type=float, default=1e-4, help='weight decay')
     parser.add_argument('--acc_stopping', type=int, default=1, help='Stopping criterion based on accuracy (default: 1)')
+    parser.add_argument('--method', type=str, default='abvs', help='method for computing abv: abvs or abvh')
 
     # simulation arguments
     parser.add_argument('--processes', type=int, default=8, help="number of processes")

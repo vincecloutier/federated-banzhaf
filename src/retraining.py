@@ -119,14 +119,15 @@ if __name__ == '__main__':
     predicted_bad_abvh = identify_bad_idxs(abv_hessian)
     bad_client_accuracy_abvs = measure_accuracy(actual_bad_clients, predicted_bad_abvs)
     bad_client_accuracy_abvh = measure_accuracy(actual_bad_clients, predicted_bad_abvh)
-    
+    predicted_bad = predicted_bad_abvs if args.method == 'abvs' else predicted_bad_abvh
+
     print(f'Bad Client Accuracy: {bad_client_accuracy_abvs}')
 
     # retrain the model w/o bad clients 
     global_model = initialize_model(args)
     global_model.to(device)
     global_model.train()
-    retrained_model, _, _, retrained_runtimes = train_global_model(args, global_model, train_dataset, valid_dataset, test_dataset, user_groups, device, predicted_bad_abvh)
+    retrained_model, _, _, retrained_runtimes = train_global_model(args, global_model, train_dataset, valid_dataset, test_dataset, user_groups, device, predicted_bad)
     retrain_test_acc, retrain_test_loss = test_inference(retrained_model, test_dataset)
 
     # log results
