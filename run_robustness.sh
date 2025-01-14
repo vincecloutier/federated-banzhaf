@@ -15,15 +15,15 @@ fi
 
 echo "Using $PROCESSES processes."
 
-python robustness.py --dataset cifar --setting 0 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
-python robustness.py --dataset cifar --setting 1 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01
-python robustness.py --dataset cifar --setting 2 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
-python robustness.py --dataset cifar --setting 3 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
+python src/robustness.py --dataset cifar --setting 0 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
+python src/robustness.py --dataset cifar --setting 1 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01
+python src/robustness.py --dataset cifar --setting 2 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
+python src/robustness.py --dataset cifar --setting 3 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
 
-python robustness.py --dataset fmnist --setting 0 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
-python robustness.py --dataset fmnist --setting 1 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
-python robustness.py --dataset fmnist --setting 2 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
-python robustness.py --dataset fmnist --setting 3 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
+python src/robustness.py --dataset fmnist --setting 0 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
+python src/robustness.py --dataset fmnist --setting 1 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 
+python src/robustness.py --dataset fmnist --setting 2 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
+python src/robustness.py --dataset fmnist --setting 3 --processes $PROCESSES --num_users 10 --local_ep 3 --epochs 15 --shapley_processes $SHAPLEY_PROCESSES --lr 0.01 --badsample_prop 0.8
 
 # chmod +x run_robustness.sh
 # ./run_robustness.sh [processes] [shapley_processes]
