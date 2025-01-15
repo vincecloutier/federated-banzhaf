@@ -15,7 +15,7 @@ else
     echo "'bc' is already installed."
 fi
 
-# loop to run each command nine times
+# run retraining for each 2, 4, 6, 8 bad clients
 for i in {1..4}
 do
     # calculate badclient_prop for this iteration
