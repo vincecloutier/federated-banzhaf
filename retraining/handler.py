@@ -11,8 +11,8 @@ def process_log(file_path):
         logs = file.read()
 
     # regex patterns
-    before_pattern = r"Test Accuracy Before Retraining: ([\d\.]+), Test Loss Before Retraining: ([\d\.]+), in ([\d\.]+)s"
-    after_pattern = r"Test Accuracy After Retraining: ([\d\.]+), Test Loss After Retraining: ([\d\.]+), in ([\d\.]+)s"
+    before_pattern = r"Test Accuracy Before Retraining: ([\d\.]+), Test Loss Before Retraining: ([\d\.]+)"
+    after_pattern = r"Test Accuracy After Retraining: ([\d\.]+), Test Loss After Retraining: ([\d\.]+)"
 
     # extract all values 
     acc_loss_before = [tuple(map(float, match)) for match in re.findall(before_pattern, logs)]
