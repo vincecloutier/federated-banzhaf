@@ -1,7 +1,6 @@
 # Federated Banzhaf Value & FBV-Debug Experiments
 This repository contains the experiments accompanying the paper [Robust Client-level Contribution Assessment in Horizontal Federated Learning](paper.pdf). This project was undertaken under the supervision of Dr. Zhuan Shi and Professor Boi Faltings at EPFL's Artificial Intelligence Laboratory.
 
-
 ## Installation
 
 1. **Clone the Repository**  
